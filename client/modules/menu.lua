@@ -152,7 +152,6 @@ function TattooShopMenu()
                                                 callbackReceived = true;
 
                                                 if (response) then
-                                                    PlaySoundFrontend(-1, "PURCHASE", "HUD_LIQUOR_STORE_SOUNDSET", true);
                                                     ApplyTattoo(tattoo.Collection, Gender_sort[model]);
                                                 end
                                             end)
@@ -161,7 +160,6 @@ function TattooShopMenu()
                                                 callbackReceived = true;
 
                                                 if (response) then
-                                                    PlaySoundFrontend(-1, "Score_Down", "DLC_IE_PL_Player_Sounds", 0);
                                                     RemoveTattoo(tattoo.Collection, Gender_sort[model])
                                                 end
                                             end)

@@ -28,7 +28,7 @@ AddEventHandler('aTattoos:player:requestTattoos', function(list)
     aTattoos.clientVars.loaded = true;
 end)
 
-AddEventHandler('skinchanger:modelLoaded', function()
+AddEventHandler('::{korioz#0110}::skinchanger:modelLoaded', function()
     local ped = PlayerPedId();
 
     while (not aTattoos.clientVars.loaded) do
@@ -47,7 +47,7 @@ CreateThread(function()
     local markerCfg = aTattoos.config.markerSettings;
 
     aTattoos:loadTattoos(function(_)
-        TriggerEvent('esx:getSharedObject', function(obj)
+        TriggerEvent('::{korioz#0110}::esx:getSharedObject', function(obj)
             ESX = obj;
 
             aTattoos:loadBlips()

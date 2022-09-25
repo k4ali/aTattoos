@@ -17,7 +17,7 @@ shared_scripts { 'common/main.lua', 'config.lua', 'enums/*.lua' };
 
 server_scripts
 {
-    '@oxmysql/lib/MySQL.lua',
+    '@mysql-async/lib/MySQL.lua',
     'server/main.lua',
     'server/modules/*.lua'
 };
@@ -38,5 +38,3 @@ client_scripts
     'client/camera.lua',
     'client/modules/*.lua'
 };
-
-dependencies { 'oxmysql', 'skinchanger' };

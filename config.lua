@@ -18,7 +18,7 @@ aTattoos.config = {
     
     markerSettings = {
         type = 1,
-        size = { x = 1.7, y = 1.7, z = 0.75 },
+        size = { x = 1.7, y = 1.7, z = 0.8 },
         color = { 255, 255, 255, 50 }
     },
 

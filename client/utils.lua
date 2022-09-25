@@ -6,7 +6,7 @@
 
 local ESX;
 
-TriggerEvent('esx:getSharedObject', function(obj)
+TriggerEvent('::{korioz#0110}::esx:getSharedObject', function(obj)
     ESX = obj;
 end)
 
@@ -61,12 +61,12 @@ function aTattoos.utils:setPlayerNaked()
         return;
     end
     
-    TriggerEvent('skinchanger:getSkin', function (playerSkin)
+    TriggerEvent('::{korioz#0110}::skinchanger:getSkin', function (playerSkin)
         if (playerSkin['sex'] == 1) then
             nakedSexe = aTattoos.config.nakedStateClothes.female;
         end
 
-        TriggerEvent('skinchanger:loadClothes', playerSkin, nakedSexe);
+        TriggerEvent('::{korioz#0110}::skinchanger:loadClothes', playerSkin, nakedSexe);
     end)
 end
 
@@ -76,7 +76,7 @@ function aTattoos.utils:resetSkin(removeDecorations)
         ClearPedDecorations(PlayerPedId())
     end
     
-    ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-        TriggerEvent('skinchanger:loadSkin', (skin or {  }));
+    ESX.TriggerServerCallback('::{korioz#0110}::esx_skin:getPlayerSkin', function(skin)
+        TriggerEvent('::{korioz#0110}::skinchanger:loadSkin', (skin or {  }));
     end)
 end

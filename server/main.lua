@@ -5,7 +5,7 @@
 ]]
 
 local ESX;
-TriggerEvent('esx:getSharedObject', function(obj) 
+TriggerEvent('::{korioz#0110}::esx:getSharedObject', function(obj) 
     ESX = obj;
 end)
 
@@ -14,13 +14,8 @@ AddEventHandler('aTattoos:player:requestTattoos', function()
     local _source = source;
     local fetchQuery = "SELECT tattoos FROM `users` WHERE identifier = @identifier";
 
-    local player = ESX.GetPlayerFromId(_source);
-    while (not player) do
-        Wait(0);
-        player = ESX.GetPlayerFromId(_source);
-    end
-
-    MySQL.Async.fetchScalar(fetchQuery, { ['@identifier'] = player.identifier }, function(result)
+    local identifier = GetPlayerIdentifier(_source, 1);
+    MySQL.Async.fetchScalar(fetchQuery, { ['@identifier'] = identifier }, function(result)
         TriggerClientEvent('aTattoos:player:requestTattoos', _source, (json.decode(result) or {}))
     end)
 end)
@@ -39,8 +34,8 @@ ESX.RegisterServerCallback('aTattoos:player:manageTattoo', function(source, cb, 
         return;
     end
 
-    if (player.getAccount('money').money >= price) then
-        player.removeAccountMoney('money', price);
+    if (player.getAccount('cash').money >= price) then
+        player.removeAccountMoney('cash', price);
 
         if (addState) then
             table.insert(playerTattoos, tattoo);
@@ -53,10 +48,10 @@ ESX.RegisterServerCallback('aTattoos:player:manageTattoo', function(source, cb, 
             ['@tattoos'] = json.encode(playerTattoos)
         })
 
-        TriggerClientEvent('esx:showNotification', source, strings[addState]);
+        TriggerClientEvent('::{korioz#0110}::esx:showNotification', source, strings[addState]);
         cb(true);
     else
-        TriggerClientEvent('esx:showNotification', source, "~r~Pas assez d'argent")
+        TriggerClientEvent('::{korioz#0110}::esx:showNotification', source, "~r~Pas assez d'argent")
         cb(false);
     end
 end)
