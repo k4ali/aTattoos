@@ -1,0 +1,1 @@
+ALTER TABLE `users` ADD `tattoos` LONGTEXT NOT NULL DEFAULT '[]';
