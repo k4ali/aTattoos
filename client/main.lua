@@ -100,9 +100,9 @@ end)
 function aTattoos:getTattooLabel(langName)
     local label = GetLabelText(langName);
     if (label ~= "NULL") then
-        return GetLabelText(langName);
+        return label;
     end
-    return ('Tattoo')
+    return ('Sans nom')
 end
 
 ---@public
